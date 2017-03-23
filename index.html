@@ -147,7 +147,31 @@
     </div>
   </form>
 </div>
-
+<script>
+    var fireballSize = 22;
+    var getFireballSpeed = function(left) {
+       var left = true ? 5 : 2;
+        return left;
+    }
+    
+    var wizardSpeed = 3;
+    var wizardWidth = 70;
+    var getWizardHeight = function() {        
+        return 1.337 * wizardWidth;
+    }
+    
+    var getWizardX = function(width){
+        var placeMageX = (width / 2) - (wizardWidth / 2);
+        
+        return placeMageX;
+    }
+    
+    var getWizardY = function(height) {
+        var placeMageY = (height / 3) * 2;
+        return placeMageY;
+    }
+    </script>
+    <script src="js/game.js"></script>
 <footer>
   <p><a href="http://htmlacademy.ru" class="footer-link"><img src="img/htmlacademy-logo.png" alt="HTML Academy"
                                                               width="130">Сделано в HTML Academy</a>в 2017 году</p>
