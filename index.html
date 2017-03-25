@@ -150,7 +150,13 @@
 <script>
     var fireballSize = 22;
     var getFireballSpeed = function(left) {
-       var left = true ? 5 : 2;
+        
+      if (left == true) {
+          left = 2;
+      }
+          else {
+              left = 5;
+          }
         return left;
     }
     
