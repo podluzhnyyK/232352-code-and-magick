@@ -1,5 +1,5 @@
 'use strict';
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     ctx.strokeRect(110, 20, 270, 420);
     ctx.fillRect(110, 20, 270, 420);
@@ -20,27 +20,18 @@ window.renderStatistics = function(ctx, names, times) {
         }
     }
 
-    function getRandomOpacity() {
-        return Math.round(Math.random());
+    function getRandomOpacity(min, max) {
+        return Math.random() * (max - min) + min;
     }
     var histogramWidth = 150;
     var step = histogramWidth / (-max - 0);
     var listCoordinate = [120, 170, 220, 270];
 
-
     for (var i = 0; i < times.length; i++) {
+        names[i] === "Вы" ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'rgba(0, 21, 255,' + getRandomOpacity(0.1, 1); + '';
         ctx.fillText(Math.round(times[i]), listCoordinate[i], 240 + times[i] * step);
-    }
-
-
-    for (var i = 0; i < names.length; i++) {
         ctx.fillText(names[i], listCoordinate[i], 280);
+        ctx.fillRect(listCoordinate[i], 260, 40, times[i] * step);
     }
 
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-    ctx.fillRect(120, 260, 40, times[0] * step);
-    ctx.fillStyle = 'rgba(0, 21, 255, getRandomOpacity())';
-    ctx.fillRect(170, 260, 40, times[1] * step);
-    ctx.fillRect(220, 260, 40, times[2] * step);
-    ctx.fillRect(270, 260, 40, times[3] * step);
 };
