@@ -25,13 +25,14 @@ window.renderStatistics = function (ctx, names, times) {
     }
     var histogramWidth = 150;
     var step = histogramWidth / (-max - 0);
-    var listCoordinate = [120, 170, 220, 270];
+    var stepCoordinate = 120;
 
     for (var i = 0; i < times.length; i++) {
         names[i] === "Вы" ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'rgba(0, 21, 255,' + getRandomOpacity(0.1, 1); + '';
-        ctx.fillText(Math.round(times[i]), listCoordinate[i], 240 + times[i] * step);
-        ctx.fillText(names[i], listCoordinate[i], 280);
-        ctx.fillRect(listCoordinate[i], 260, 40, times[i] * step);
+        ctx.fillText(Math.round(times[i]), stepCoordinate, 240 + times[i] * step);
+        ctx.fillText(names[i], stepCoordinate, 280);
+        ctx.fillRect(stepCoordinate, 260, 40, times[i] * step);
+        stepCoordinate += 50;
     }
 
 };
