@@ -11,7 +11,8 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура вы победили!', 120, 40);
   ctx.fillText('Список результатов:', 120, 60);
   var max = -1;
-  for (var i = 0; i < times.length; i++) {
+  var i;
+  for (i = 0; i < times.length; i++) {
     var time = times[i];
     if (time > max) {
       max = time;
@@ -25,8 +26,12 @@ window.renderStatistics = function (ctx, names, times) {
   var step = histogramWidth / (-max - 0);
   var stepCoordinate = 120;
 
-  for (var i = 0; i < times.length; i++) {
-    names[i] === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'rgba(0, 21, 255,' + getRandomOpacity(0.1, 1); + '';
+  for (i = 0; i < times.length; i++) {
+    if (names[i] === 'Вы') {
+      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    } else {
+      ctx.fillStyle = 'rgba(0, 21, 255,' + getRandomOpacity(0.1, 1) + ')';
+    }
     ctx.fillText(Math.round(times[i]), stepCoordinate, 240 + times[i] * step);
     ctx.fillText(names[i], stepCoordinate, 280);
     ctx.fillRect(stepCoordinate, 260, 40, times[i] * step);
