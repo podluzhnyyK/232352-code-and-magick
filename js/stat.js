@@ -1,15 +1,21 @@
 'use strict';
 window.renderStatistics = function (ctx, names, times) {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+ function getBackground(){
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.strokeRect(110, 20, 270, 420);
   ctx.fillRect(110, 20, 270, 420);
   ctx.fillStyle = 'rgba(256, 256, 256, 1.0)';
   ctx.strokeRect(100, 10, 270, 420);
   ctx.fillRect(100, 10, 270, 420);
+  };
+  getBackground();
+  function getTextBackground(){
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура вы победили!', 120, 40);
   ctx.fillText('Список результатов:', 120, 60);
+  }
+  getTextBackground();
   var max = -1;
   var i;
   for (i = 0; i < times.length; i++) {
